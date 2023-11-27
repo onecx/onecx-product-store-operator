@@ -1,0 +1,4 @@
+app:
+  image:
+    repository: "onecx/onecx-product-store-operator"
+    tag: 999-SNAPSHOT
