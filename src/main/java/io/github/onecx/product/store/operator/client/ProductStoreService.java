@@ -1,4 +1,4 @@
-package io.github.onecx.product.store.operator.product.client;
+package io.github.onecx.product.store.operator.client;
 
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
@@ -9,9 +9,9 @@ import org.slf4j.LoggerFactory;
 
 import gen.io.github.onecx.product.store.product.v1.api.OperatorProductApi;
 import gen.io.github.onecx.product.store.product.v1.model.UpdateProductRequest;
-import io.github.onecx.product.store.operator.product.Product;
-import io.github.onecx.product.store.operator.product.ProductSpec;
-import io.github.onecx.product.store.operator.product.client.mappers.ProductStoreMapper;
+import io.github.onecx.product.store.operator.Product;
+import io.github.onecx.product.store.operator.ProductSpec;
+import io.github.onecx.product.store.operator.client.mappers.ProductStoreMapper;
 
 @ApplicationScoped
 public class ProductStoreService {

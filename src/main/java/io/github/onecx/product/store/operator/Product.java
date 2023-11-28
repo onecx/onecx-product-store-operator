@@ -1,4 +1,4 @@
-package io.github.onecx.product.store.operator.product;
+package io.github.onecx.product.store.operator;
 
 import io.fabric8.kubernetes.api.model.Namespaced;
 import io.fabric8.kubernetes.client.CustomResource;

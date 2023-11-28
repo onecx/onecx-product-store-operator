@@ -1,4 +1,4 @@
-package io.github.onecx.product.store.operator.product;
+package io.github.onecx.product.store.operator;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
