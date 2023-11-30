@@ -1,4 +1,12 @@
 app:
+  name: product-operator
   image:
     repository: "onecx/onecx-product-store-operator"
     tag: 999-SNAPSHOT
+  envCustom:
+    - name: KUBERNETES_NAMESPACE
+      valueFrom:
+        fieldRef:
+          fieldPath: metadata.namespace
+  serviceAccount:
+    enabled: true
