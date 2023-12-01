@@ -11,9 +11,9 @@ import io.javaoperatorsdk.operator.api.reconciler.*;
 import io.javaoperatorsdk.operator.processing.event.source.filter.OnAddFilter;
 import io.javaoperatorsdk.operator.processing.event.source.filter.OnUpdateFilter;
 
-@ControllerConfiguration(onAddFilter = ProductReconciler.AddFilter.class, onUpdateFilter = ProductReconciler.UpdateFilter.class)
-public class ProductReconciler implements Reconciler<Product>, ErrorStatusHandler<Product> {
-    private static final Logger log = LoggerFactory.getLogger(ProductReconciler.class);
+@ControllerConfiguration(name = "product", onAddFilter = ProductController.AddFilter.class, onUpdateFilter = ProductController.UpdateFilter.class)
+public class ProductController implements Reconciler<Product>, ErrorStatusHandler<Product> {
+    private static final Logger log = LoggerFactory.getLogger(ProductController.class);
 
     @Inject
     ProductStoreService service;

@@ -24,9 +24,9 @@ import io.javaoperatorsdk.operator.Operator;
 import io.quarkus.test.junit.QuarkusTest;
 
 @QuarkusTest
-class ProductReconcilerTest extends AbstractTest {
+class ProductControllerTest extends AbstractTest {
 
-    final static Logger log = LoggerFactory.getLogger(ProductReconcilerTest.class);
+    final static Logger log = LoggerFactory.getLogger(ProductControllerTest.class);
 
     @Inject
     Operator operator;
