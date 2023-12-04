@@ -3,7 +3,6 @@ app:
   image:
     repository: "onecx/onecx-product-store-operator"
   env:
-    "TKIT_LOG_JSON_ENABLED": "false"
     # See watchNamespaces
     "QUARKUS_OPERATOR_SDK_CONTROLLERS_PRODUCT_NAMESPACES": "JOSDK_WATCH_CURRENT"
   envCustom:
