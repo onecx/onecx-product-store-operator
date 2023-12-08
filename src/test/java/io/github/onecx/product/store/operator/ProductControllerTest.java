@@ -76,6 +76,7 @@ class ProductControllerTest extends AbstractTest {
         ProductSpec spec = new ProductSpec();
         spec.setName(name);
         spec.setBasePath(basePath);
+        spec.setVersion("0.0.0");
         spec.setDescription("description");
         spec.setImageUrl("imageUrl");
         return spec;
