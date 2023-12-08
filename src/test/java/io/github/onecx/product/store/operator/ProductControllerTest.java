@@ -4,6 +4,7 @@ import static java.util.concurrent.TimeUnit.SECONDS;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.awaitility.Awaitility.await;
 
+import java.util.Set;
 import java.util.stream.Stream;
 
 import jakarta.inject.Inject;
@@ -77,6 +78,9 @@ class ProductControllerTest extends AbstractTest {
         spec.setName(name);
         spec.setBasePath(basePath);
         spec.setVersion("0.0.0");
+        spec.setClassifications(Set.of("a", "b"));
+        spec.setIconName("icon1");
+        spec.setDisplayName("dp");
         spec.setDescription("description");
         spec.setImageUrl("imageUrl");
         return spec;
