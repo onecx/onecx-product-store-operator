@@ -1,22 +1,36 @@
 package io.github.onecx.product.store.operator;
 
+import java.util.Set;
+
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class ProductSpec {
 
-    @JsonProperty("name")
+    @JsonProperty(value = "name", required = true)
     private String name;
 
-    @JsonProperty("base-path")
+    @JsonProperty(value = "basePath", required = true)
     private String basePath;
 
     @JsonProperty("description")
     private String description;
 
-    @JsonProperty("image-url")
+    @JsonProperty("imageUrl")
     private String imageUrl;
+
+    @JsonProperty(value = "version", required = true)
+    private String version;
+
+    @JsonProperty("displayName")
+    private String displayName;
+
+    @JsonProperty("iconName")
+    private String iconName;
+
+    @JsonProperty("classifications")
+    private Set<String> classifications;
 
     public String getName() {
         return name;
@@ -48,5 +62,37 @@ public class ProductSpec {
 
     public void setImageUrl(String imageUrl) {
         this.imageUrl = imageUrl;
+    }
+
+    public Set<String> getClassifications() {
+        return classifications;
+    }
+
+    public void setClassifications(Set<String> classifications) {
+        this.classifications = classifications;
+    }
+
+    public String getDisplayName() {
+        return displayName;
+    }
+
+    public void setDisplayName(String displayName) {
+        this.displayName = displayName;
+    }
+
+    public String getIconName() {
+        return iconName;
+    }
+
+    public void setIconName(String iconName) {
+        this.iconName = iconName;
+    }
+
+    public String getVersion() {
+        return version;
+    }
+
+    public void setVersion(String version) {
+        this.version = version;
     }
 }
