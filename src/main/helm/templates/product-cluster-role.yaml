@@ -4,7 +4,7 @@ metadata:
   name: {{ .Release.Name }}-{{ .Values.app.name }}-cluster-role
 rules:
   - apiGroups:
-      - io.github.onecx.product.store
+      - onecx.github.io
     resources:
       - products
       - products/status
