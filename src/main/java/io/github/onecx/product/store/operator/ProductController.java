@@ -27,7 +27,7 @@ public class ProductController implements Reconciler<Product>, ErrorStatusHandle
         int responseCode = service.updateProduct(product);
 
         updateStatusPojo(product, responseCode);
-        log.info("Microfrontend '{}' reconciled - updating status", product.getMetadata().getName());
+        log.info("Product '{}' reconciled - updating status", product.getMetadata().getName());
         return UpdateControl.updateStatus(product);
 
     }
