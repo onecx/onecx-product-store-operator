@@ -1,4 +1,4 @@
-package io.github.onecx.product.store.operator.client;
+package org.tkit.onecx.product.store.operator.client;
 
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
@@ -6,12 +6,12 @@ import jakarta.inject.Inject;
 import org.eclipse.microprofile.rest.client.inject.RestClient;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.tkit.onecx.product.store.operator.Product;
+import org.tkit.onecx.product.store.operator.ProductSpec;
+import org.tkit.onecx.product.store.operator.client.mappers.ProductStoreMapper;
 
-import gen.io.github.onecx.product.store.product.v1.api.OperatorProductApi;
-import gen.io.github.onecx.product.store.product.v1.model.UpdateProductRequest;
-import io.github.onecx.product.store.operator.Product;
-import io.github.onecx.product.store.operator.ProductSpec;
-import io.github.onecx.product.store.operator.client.mappers.ProductStoreMapper;
+import gen.org.tkit.onecx.product.store.product.v1.api.OperatorProductApi;
+import gen.org.tkit.onecx.product.store.product.v1.model.UpdateProductRequest;
 
 @ApplicationScoped
 public class ProductStoreService {

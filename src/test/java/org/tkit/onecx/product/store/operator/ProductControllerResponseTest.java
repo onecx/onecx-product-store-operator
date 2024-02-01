@@ -1,4 +1,4 @@
-package io.github.onecx.product.store.operator;
+package org.tkit.onecx.product.store.operator;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.ArgumentMatchers.any;
@@ -8,9 +8,9 @@ import jakarta.inject.Inject;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
+import org.tkit.onecx.product.store.operator.client.ProductStoreService;
+import org.tkit.onecx.product.store.test.AbstractTest;
 
-import io.github.onecx.product.store.operator.client.ProductStoreService;
-import io.github.onecx.product.store.test.AbstractTest;
 import io.javaoperatorsdk.operator.api.reconciler.UpdateControl;
 import io.quarkus.test.InjectMock;
 import io.quarkus.test.junit.QuarkusTest;

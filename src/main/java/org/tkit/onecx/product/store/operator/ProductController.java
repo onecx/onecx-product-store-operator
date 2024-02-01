@@ -1,12 +1,12 @@
-package io.github.onecx.product.store.operator;
+package org.tkit.onecx.product.store.operator;
 
 import jakarta.inject.Inject;
 import jakarta.ws.rs.WebApplicationException;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.tkit.onecx.product.store.operator.client.ProductStoreService;
 
-import io.github.onecx.product.store.operator.client.ProductStoreService;
 import io.javaoperatorsdk.operator.api.reconciler.*;
 import io.javaoperatorsdk.operator.processing.event.source.filter.OnAddFilter;
 import io.javaoperatorsdk.operator.processing.event.source.filter.OnUpdateFilter;
