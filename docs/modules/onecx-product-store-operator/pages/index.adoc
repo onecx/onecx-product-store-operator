@@ -1,0 +1,8 @@
+include::onecx-product-store-operator-attributes.adoc[opts=optional]
+
+== onecx-product-store-operator
+
+include::docs.adoc[opts=optional]
+
+
+include::onecx-product-store-operator-docs.adoc[opts=optional]
