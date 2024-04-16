@@ -1,0 +1,1 @@
+* xref:onecx-product-store-operator:index.adoc[Product Store Operator]
