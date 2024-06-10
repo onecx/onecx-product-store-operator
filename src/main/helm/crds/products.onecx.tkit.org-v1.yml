@@ -33,6 +33,8 @@ spec:
                 type: string
               name:
                 type: string
+              provider:
+                type: string
               version:
                 type: string
             type: object

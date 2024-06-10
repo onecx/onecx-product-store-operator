@@ -32,6 +32,9 @@ public class ProductSpec {
     @JsonProperty("classifications")
     private Set<String> classifications;
 
+    @JsonProperty("provider")
+    private String provider;
+
     public String getName() {
         return name;
     }
@@ -94,5 +97,13 @@ public class ProductSpec {
 
     public void setVersion(String version) {
         this.version = version;
+    }
+
+    public String getProvider() {
+        return provider;
+    }
+
+    public void setProvider(String provider) {
+        this.provider = provider;
     }
 }

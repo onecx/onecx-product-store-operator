@@ -83,6 +83,7 @@ class ProductControllerTest extends AbstractTest {
         spec.setDisplayName("dp");
         spec.setDescription("description");
         spec.setImageUrl("imageUrl");
+        spec.setProvider("provider");
         return spec;
     }
 
