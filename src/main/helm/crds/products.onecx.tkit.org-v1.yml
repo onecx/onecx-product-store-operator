@@ -50,10 +50,10 @@ spec:
                 type: integer
               status:
                 enum:
-                  - CREATED
-                  - ERROR
-                  - UNDEFINED
-                  - UPDATED
+                - CREATED
+                - ERROR
+                - UNDEFINED
+                - UPDATED
                 type: string
             type: object
         type: object
