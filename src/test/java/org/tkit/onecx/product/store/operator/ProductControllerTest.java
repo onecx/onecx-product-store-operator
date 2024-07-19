@@ -27,7 +27,7 @@ import io.quarkus.test.junit.QuarkusTest;
 @QuarkusTest
 class ProductControllerTest extends AbstractTest {
 
-    final static Logger log = LoggerFactory.getLogger(ProductControllerTest.class);
+    static final Logger log = LoggerFactory.getLogger(ProductControllerTest.class);
 
     @Inject
     Operator operator;
