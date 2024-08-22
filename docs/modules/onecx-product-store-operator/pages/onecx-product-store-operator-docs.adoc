@@ -44,9 +44,6 @@ app:
   name: product-operator
   image:
     repository: "onecx/onecx-product-store-operator"
-  env:
-    # See watchNamespaces
-    "QUARKUS_OPERATOR_SDK_CONTROLLERS_PRODUCT_NAMESPACES": "JOSDK_WATCH_CURRENT"
   envCustom:
     - name: KUBERNETES_NAMESPACE
       valueFrom:
@@ -58,6 +55,13 @@ app:
     keycloak:
       client:
         enabled: true
+        spec:
+          kcConfig:
+            defaultClientScopes: [ ocx-ps-product:write ]
+
+----
+
+ enabled: true
         spec:
           kcConfig:
             defaultClientScopes: [ ocx-ps-product:write ]
