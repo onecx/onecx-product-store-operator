@@ -23,6 +23,10 @@ quarkus.openapi-generator.codegen.spec.onecx_product_store_operator_product_v1_y
 quarkus.openapi-generator.codegen.spec.onecx_product_store_operator_product_v1_yaml.base-package=gen.org.tkit.onecx.product.store.product.v1
 quarkus.openapi-generator.codegen.spec.onecx_product_store_operator_product_v1_yaml.return-response=true
 quarkus.openapi-generator.codegen.spec.onecx_product_store_operator_product_v1_yaml.enable-security-generation=false
+quarkus.openapi-generator.codegen.spec.onecx_product_store_operator_slot_v1_yaml.config-key=product_store_client
+quarkus.openapi-generator.codegen.spec.onecx_product_store_operator_slot_v1_yaml.base-package=gen.org.tkit.onecx.product.store.slot.v1
+quarkus.openapi-generator.codegen.spec.onecx_product_store_operator_slot_v1_yaml.return-response=true
+quarkus.openapi-generator.codegen.spec.onecx_product_store_operator_slot_v1_yaml.enable-security-generation=false
 ----
 ====
 
@@ -51,6 +55,21 @@ app:
   envCustom:
     - name: KUBERNETES_NAMESPACE
       valueFrom:
+        fieldRef:
+          fieldPath: metadata.namespace
+  serviceAccount:
+    enabled: true
+  operator:
+    keycloak:
+      client:
+        enabled: true
+        spec:
+          kcConfig:
+            defaultClientScopes: [ ocx-ps-product:write ]
+
+----
+
+
         fieldRef:
           fieldPath: metadata.namespace
   serviceAccount:

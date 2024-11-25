@@ -23,6 +23,7 @@ class LeaderConfigurationTest extends AbstractTest {
         assertThat(dataConfig).isNotNull();
         assertThat(dataConfig.leaderElectionConfig()).isNotNull();
         assertThat(leaderConfiguration).isNotNull();
-        assertThat(leaderConfiguration.getLeaseName()).isNotNull().isEqualTo(dataConfig.leaderElectionConfig().leaseName());
+        assertThat(leaderConfiguration.getLeaseName()).isNotNull()
+                .isEqualTo(dataConfig.leaderElectionConfig().leaseName());
     }
 }

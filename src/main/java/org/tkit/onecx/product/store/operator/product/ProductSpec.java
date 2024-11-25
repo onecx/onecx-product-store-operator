@@ -1,4 +1,4 @@
-package org.tkit.onecx.product.store.operator;
+package org.tkit.onecx.product.store.operator.product;
 
 import java.util.Set;
 

@@ -72,7 +72,7 @@ h| Version
 
 | https://onecx.github.io/docs/onecx-quarkus/current/onecx-quarkus/onecx-core.html[Link]
 | 
-| 0.32.0
+| 0.34.0
 
 | quarkus-smallrye-health
 
@@ -91,13 +91,13 @@ h| Version
 
 | 
 | 
-| 6.7.3
+| 6.8.3
 
 | quarkus-operator-sdk
 
 | 
 | 
-| 6.7.3
+| 6.8.3
 
 | quarkus-oidc-client
 

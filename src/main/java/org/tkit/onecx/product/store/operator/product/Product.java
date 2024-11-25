@@ -1,4 +1,4 @@
-package org.tkit.onecx.product.store.operator;
+package org.tkit.onecx.product.store.operator.product;
 
 import io.fabric8.kubernetes.api.model.Namespaced;
 import io.fabric8.kubernetes.client.CustomResource;

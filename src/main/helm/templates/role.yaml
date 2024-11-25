@@ -9,6 +9,9 @@ rules:
       - products
       - products/status
       - products/finalizers
+      - slots
+      - slots/status
+      - slots/finalizers
     verbs:
       - get
       - list
