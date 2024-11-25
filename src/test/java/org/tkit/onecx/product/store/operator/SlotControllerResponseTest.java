@@ -8,11 +8,11 @@ import jakarta.inject.Inject;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
-import org.tkit.onecx.product.store.operator.Slot.Slot;
-import org.tkit.onecx.product.store.operator.Slot.SlotController;
-import org.tkit.onecx.product.store.operator.Slot.SlotSpec;
-import org.tkit.onecx.product.store.operator.Slot.SlotStatus;
 import org.tkit.onecx.product.store.operator.client.ProductStoreService;
+import org.tkit.onecx.product.store.operator.slot.Slot;
+import org.tkit.onecx.product.store.operator.slot.SlotController;
+import org.tkit.onecx.product.store.operator.slot.SlotSpec;
+import org.tkit.onecx.product.store.operator.slot.SlotStatus;
 import org.tkit.onecx.product.store.test.AbstractTest;
 
 import io.javaoperatorsdk.operator.api.reconciler.UpdateControl;

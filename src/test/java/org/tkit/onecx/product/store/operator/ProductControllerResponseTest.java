@@ -8,11 +8,11 @@ import jakarta.inject.Inject;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
-import org.tkit.onecx.product.store.operator.Product.Product;
-import org.tkit.onecx.product.store.operator.Product.ProductController;
-import org.tkit.onecx.product.store.operator.Product.ProductSpec;
-import org.tkit.onecx.product.store.operator.Product.ProductStatus;
 import org.tkit.onecx.product.store.operator.client.ProductStoreService;
+import org.tkit.onecx.product.store.operator.product.Product;
+import org.tkit.onecx.product.store.operator.product.ProductController;
+import org.tkit.onecx.product.store.operator.product.ProductSpec;
+import org.tkit.onecx.product.store.operator.product.ProductStatus;
 import org.tkit.onecx.product.store.test.AbstractTest;
 
 import io.javaoperatorsdk.operator.api.reconciler.UpdateControl;

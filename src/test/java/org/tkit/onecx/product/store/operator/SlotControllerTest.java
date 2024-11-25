@@ -16,9 +16,9 @@ import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.tkit.onecx.product.store.operator.Slot.Slot;
-import org.tkit.onecx.product.store.operator.Slot.SlotSpec;
-import org.tkit.onecx.product.store.operator.Slot.SlotStatus;
+import org.tkit.onecx.product.store.operator.slot.Slot;
+import org.tkit.onecx.product.store.operator.slot.SlotSpec;
+import org.tkit.onecx.product.store.operator.slot.SlotStatus;
 import org.tkit.onecx.product.store.test.AbstractTest;
 
 import io.fabric8.kubernetes.api.model.ObjectMetaBuilder;

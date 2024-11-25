@@ -1,4 +1,4 @@
-package org.tkit.onecx.product.store.operator.Product;
+package org.tkit.onecx.product.store.operator.product;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 

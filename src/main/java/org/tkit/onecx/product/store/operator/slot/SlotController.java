@@ -1,4 +1,4 @@
-package org.tkit.onecx.product.store.operator.Slot;
+package org.tkit.onecx.product.store.operator.slot;
 
 import static io.javaoperatorsdk.operator.api.reconciler.Constants.WATCH_CURRENT_NAMESPACE;
 

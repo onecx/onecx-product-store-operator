@@ -6,11 +6,11 @@ import jakarta.inject.Inject;
 import org.eclipse.microprofile.rest.client.inject.RestClient;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.tkit.onecx.product.store.operator.Product.Product;
-import org.tkit.onecx.product.store.operator.Product.ProductSpec;
-import org.tkit.onecx.product.store.operator.Slot.Slot;
-import org.tkit.onecx.product.store.operator.Slot.SlotSpec;
 import org.tkit.onecx.product.store.operator.client.mappers.ProductStoreMapper;
+import org.tkit.onecx.product.store.operator.product.Product;
+import org.tkit.onecx.product.store.operator.product.ProductSpec;
+import org.tkit.onecx.product.store.operator.slot.Slot;
+import org.tkit.onecx.product.store.operator.slot.SlotSpec;
 
 import gen.org.tkit.onecx.product.store.product.v1.api.OperatorProductApi;
 import gen.org.tkit.onecx.product.store.product.v1.model.UpdateProductRequest;
