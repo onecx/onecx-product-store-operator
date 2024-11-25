@@ -7,7 +7,11 @@ import io.javaoperatorsdk.operator.api.config.LeaderElectionConfiguration;
 @Singleton
 public class LeaderConfiguration extends LeaderElectionConfiguration {
 
-    public LeaderConfiguration(OperatorConfig config) {
-        super(config.leaderElectionConfig().leaseName());
+    public LeaderConfiguration(OperatorConfig.ProductConfig productConfig) {
+        super(productConfig.leaderElectionConfig().leaseName());
+    }
+
+    public LeaderConfiguration(OperatorConfig.SlotConfig slotConfig) {
+        super(slotConfig.leaderElectionConfig().leaseName());
     }
 }

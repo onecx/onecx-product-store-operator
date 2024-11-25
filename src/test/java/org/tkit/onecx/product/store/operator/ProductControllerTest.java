@@ -17,6 +17,9 @@ import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.tkit.onecx.product.store.operator.Product.Product;
+import org.tkit.onecx.product.store.operator.Product.ProductSpec;
+import org.tkit.onecx.product.store.operator.Product.ProductStatus;
 import org.tkit.onecx.product.store.test.AbstractTest;
 
 import io.fabric8.kubernetes.api.model.ObjectMetaBuilder;

@@ -12,6 +12,10 @@ quarkus.operator-sdk.controllers.product.retry.max-attempts=10
 quarkus.operator-sdk.controllers.product.retry.interval.initial=5000
 quarkus.operator-sdk.controllers.product.retry.interval.multiplier=3
 quarkus.operator-sdk.controllers.product.retry.interval.max=300000
+quarkus.operator-sdk.controllers.slot.retry.max-attempts=10
+quarkus.operator-sdk.controllers.slot.retry.interval.initial=5000
+quarkus.operator-sdk.controllers.slot.retry.interval.multiplier=3
+quarkus.operator-sdk.controllers.slot.retry.interval.max=300000
 quarkus.kubernetes-client.devservices.override-kubeconfig=true
 %prod.quarkus.rest-client.product_store_client.url=http://onecx-product-store-svc:8080
 %prod.quarkus.rest-client.product_store_client.providers=io.quarkus.oidc.client.reactive.filter.OidcClientRequestReactiveFilter
@@ -23,6 +27,10 @@ quarkus.openapi-generator.codegen.spec.onecx_product_store_operator_product_v1_y
 quarkus.openapi-generator.codegen.spec.onecx_product_store_operator_product_v1_yaml.base-package=gen.org.tkit.onecx.product.store.product.v1
 quarkus.openapi-generator.codegen.spec.onecx_product_store_operator_product_v1_yaml.return-response=true
 quarkus.openapi-generator.codegen.spec.onecx_product_store_operator_product_v1_yaml.enable-security-generation=false
+quarkus.openapi-generator.codegen.spec.onecx_product_store_operator_slot_v1_yaml.config-key=product_store_client
+quarkus.openapi-generator.codegen.spec.onecx_product_store_operator_slot_v1_yaml.base-package=gen.org.tkit.onecx.product.store.slot.v1
+quarkus.openapi-generator.codegen.spec.onecx_product_store_operator_slot_v1_yaml.return-response=true
+quarkus.openapi-generator.codegen.spec.onecx_product_store_operator_slot_v1_yaml.enable-security-generation=false
 ----
 ====
 
