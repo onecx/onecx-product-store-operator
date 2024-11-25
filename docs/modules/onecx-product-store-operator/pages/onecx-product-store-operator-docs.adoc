@@ -12,10 +12,6 @@ quarkus.operator-sdk.controllers.product.retry.max-attempts=10
 quarkus.operator-sdk.controllers.product.retry.interval.initial=5000
 quarkus.operator-sdk.controllers.product.retry.interval.multiplier=3
 quarkus.operator-sdk.controllers.product.retry.interval.max=300000
-quarkus.operator-sdk.controllers.slot.retry.max-attempts=10
-quarkus.operator-sdk.controllers.slot.retry.interval.initial=5000
-quarkus.operator-sdk.controllers.slot.retry.interval.multiplier=3
-quarkus.operator-sdk.controllers.slot.retry.interval.max=300000
 quarkus.kubernetes-client.devservices.override-kubeconfig=true
 %prod.quarkus.rest-client.product_store_client.url=http://onecx-product-store-svc:8080
 %prod.quarkus.rest-client.product_store_client.providers=io.quarkus.oidc.client.reactive.filter.OidcClientRequestReactiveFilter
@@ -59,6 +55,21 @@ app:
   envCustom:
     - name: KUBERNETES_NAMESPACE
       valueFrom:
+        fieldRef:
+          fieldPath: metadata.namespace
+  serviceAccount:
+    enabled: true
+  operator:
+    keycloak:
+      client:
+        enabled: true
+        spec:
+          kcConfig:
+            defaultClientScopes: [ ocx-ps-product:write ]
+
+----
+
+
         fieldRef:
           fieldPath: metadata.namespace
   serviceAccount:

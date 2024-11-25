@@ -8,7 +8,7 @@ h|[.header-title]##Configuration property##
 h|Type
 h|Default
 
-a| [[onecx-product-store-operator_onecx-product-store-operator-product-leader-election-lease-name]] [.property-path]##link:#onecx-product-store-operator_onecx-product-store-operator-product-leader-election-lease-name[`onecx.product-store.operator.product.leader-election.lease-name`]##
+a| [[onecx-product-store-operator_onecx-product-store-operator-leader-election-lease-name]] [.property-path]##link:#onecx-product-store-operator_onecx-product-store-operator-leader-election-lease-name[`onecx.product-store.operator.leader-election.lease-name`]##
 
 [.description]
 --
@@ -16,27 +16,10 @@ Lease name
 
 
 ifdef::add-copy-button-to-env-var[]
-Environment variable: env_var_with_copy_button:+++ONECX_PRODUCT_STORE_OPERATOR_PRODUCT_LEADER_ELECTION_LEASE_NAME+++[]
+Environment variable: env_var_with_copy_button:+++ONECX_PRODUCT_STORE_OPERATOR_LEADER_ELECTION_LEASE_NAME+++[]
 endif::add-copy-button-to-env-var[]
 ifndef::add-copy-button-to-env-var[]
-Environment variable: `+++ONECX_PRODUCT_STORE_OPERATOR_PRODUCT_LEADER_ELECTION_LEASE_NAME+++`
-endif::add-copy-button-to-env-var[]
---
-|string
-|`onecx-product-store-operator-lease`
-
-a| [[onecx-product-store-operator_onecx-product-store-operator-slot-leader-election-lease-name]] [.property-path]##link:#onecx-product-store-operator_onecx-product-store-operator-slot-leader-election-lease-name[`onecx.product-store.operator.slot.leader-election.lease-name`]##
-
-[.description]
---
-Lease name
-
-
-ifdef::add-copy-button-to-env-var[]
-Environment variable: env_var_with_copy_button:+++ONECX_PRODUCT_STORE_OPERATOR_SLOT_LEADER_ELECTION_LEASE_NAME+++[]
-endif::add-copy-button-to-env-var[]
-ifndef::add-copy-button-to-env-var[]
-Environment variable: `+++ONECX_PRODUCT_STORE_OPERATOR_SLOT_LEADER_ELECTION_LEASE_NAME+++`
+Environment variable: `+++ONECX_PRODUCT_STORE_OPERATOR_LEADER_ELECTION_LEASE_NAME+++`
 endif::add-copy-button-to-env-var[]
 --
 |string

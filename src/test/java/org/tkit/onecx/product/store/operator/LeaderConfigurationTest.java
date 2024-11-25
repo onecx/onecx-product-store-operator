@@ -15,28 +15,15 @@ class LeaderConfigurationTest extends AbstractTest {
     @Inject
     OperatorConfig dataConfig;
 
+    @Inject
     LeaderConfiguration leaderConfiguration;
 
-    @Inject
-    LeaderConfigurationFactory factory;
-
     @Test
-    void testProductLeaderConfiguration() {
-        this.leaderConfiguration = factory.createForProduct();
+    void testLeaderConfiguration() {
         assertThat(dataConfig).isNotNull();
-        assertThat(dataConfig.productConfig().leaderElectionConfig()).isNotNull();
+        assertThat(dataConfig.leaderElectionConfig()).isNotNull();
         assertThat(leaderConfiguration).isNotNull();
         assertThat(leaderConfiguration.getLeaseName()).isNotNull()
-                .isEqualTo(dataConfig.productConfig().leaderElectionConfig().leaseName());
-    }
-
-    @Test
-    void testSlotLeaderConfiguration() {
-        this.leaderConfiguration = factory.createForSlot();
-        assertThat(dataConfig).isNotNull();
-        assertThat(dataConfig.slotConfig().leaderElectionConfig()).isNotNull();
-        assertThat(leaderConfiguration).isNotNull();
-        assertThat(leaderConfiguration.getLeaseName()).isNotNull()
-                .isEqualTo(dataConfig.slotConfig().leaderElectionConfig().leaseName());
+                .isEqualTo(dataConfig.leaderElectionConfig().leaseName());
     }
 }
