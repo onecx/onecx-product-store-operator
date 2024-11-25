@@ -15,16 +15,34 @@ import io.smallrye.config.WithName;
 public interface OperatorConfig {
 
     /**
-     * Leader election configuration
+     * Product configuration
      */
-    @WithName("leader-election")
-    LeaderElectionConfig leaderElectionConfig();
+    @WithName("product")
+    ProductConfig productConfig();
 
     /**
-     * Leader election config
+     * Slot configuration
      */
-    interface LeaderElectionConfig {
+    @WithName("slot")
+    SlotConfig slotConfig();
 
+    interface ProductConfig {
+        /**
+         * Leader election configuration for product
+         */
+        @WithName("leader-election")
+        LeaderElectionConfig leaderElectionConfig();
+    }
+
+    interface SlotConfig {
+        /**
+         * Leader election configuration for slot
+         */
+        @WithName("leader-election")
+        LeaderElectionConfig leaderElectionConfig();
+    }
+
+    interface LeaderElectionConfig {
         /**
          * Lease name
          */
