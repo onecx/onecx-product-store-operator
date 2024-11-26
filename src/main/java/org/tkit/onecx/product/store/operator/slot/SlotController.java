@@ -7,6 +7,7 @@ import jakarta.ws.rs.WebApplicationException;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.tkit.onecx.product.store.operator.CustomResourceStatus;
 import org.tkit.onecx.product.store.operator.client.ProductStoreService;
 
 import io.javaoperatorsdk.operator.api.reconciler.*;
@@ -53,7 +54,7 @@ public class SlotController implements Reconciler<Slot>, ErrorStatusHandler<Slot
         status.setRequestAppId(null);
         status.setRequestName(null);
         status.setResponseCode(responseCode);
-        status.setStatus(SlotStatus.Status.ERROR);
+        status.setStatus(CustomResourceStatus.Status.ERROR);
         status.setMessage(e.getMessage());
         slot.setStatus(status);
         return ErrorStatusUpdateControl.updateStatus(slot);
@@ -68,11 +69,11 @@ public class SlotController implements Reconciler<Slot>, ErrorStatusHandler<Slot
         result.setResponseCode(responseCode);
         var status = switch (responseCode) {
             case 201:
-                yield SlotStatus.Status.CREATED;
+                yield CustomResourceStatus.Status.CREATED;
             case 200:
-                yield SlotStatus.Status.UPDATED;
+                yield CustomResourceStatus.Status.UPDATED;
             default:
-                yield SlotStatus.Status.UNDEFINED;
+                yield CustomResourceStatus.Status.UNDEFINED;
         };
         result.setStatus(status);
         slot.setStatus(result);

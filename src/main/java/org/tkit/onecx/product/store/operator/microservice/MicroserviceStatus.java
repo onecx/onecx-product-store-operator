@@ -1,10 +1,10 @@
-package org.tkit.onecx.product.store.operator.slot;
+package org.tkit.onecx.product.store.operator.microservice;
 
 import org.tkit.onecx.product.store.operator.CustomResourceStatus;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-public class SlotStatus extends CustomResourceStatus {
+public class MicroserviceStatus extends CustomResourceStatus {
 
     @JsonProperty("productName")
     private String requestProductName;
@@ -12,8 +12,11 @@ public class SlotStatus extends CustomResourceStatus {
     @JsonProperty("appId")
     private String requestAppId;
 
-    @JsonProperty("name")
-    private String requestName;
+    @JsonProperty("appVersion")
+    private String requestAppVersion;
+
+    @JsonProperty("appName")
+    private String requestAppName;
 
     public String getRequestProductName() {
         return requestProductName;
@@ -31,12 +34,20 @@ public class SlotStatus extends CustomResourceStatus {
         this.requestAppId = requestAppId;
     }
 
-    public String getRequestName() {
-        return requestName;
+    public String getRequestAppVersion() {
+        return requestAppVersion;
     }
 
-    public void setRequestName(String requestName) {
-        this.requestName = requestName;
+    public void setRequestAppVersion(String requestAppVersion) {
+        this.requestAppVersion = requestAppVersion;
+    }
+
+    public String getRequestAppName() {
+        return requestAppName;
+    }
+
+    public void setRequestAppName(String requestAppName) {
+        this.requestAppName = requestAppName;
     }
 
 }

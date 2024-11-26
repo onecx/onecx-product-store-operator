@@ -12,6 +12,9 @@ rules:
       - slots
       - slots/status
       - slots/finalizers
+      - microservices
+      - microservices/status
+      - microservices/finalizers
     verbs:
       - get
       - list

@@ -5,6 +5,7 @@ import jakarta.ws.rs.WebApplicationException;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.tkit.onecx.product.store.operator.CustomResourceStatus;
 import org.tkit.onecx.product.store.operator.client.ProductStoreService;
 
 import io.javaoperatorsdk.operator.api.reconciler.*;
@@ -44,7 +45,7 @@ public class ProductController implements Reconciler<Product>, ErrorStatusHandle
         var status = new ProductStatus();
         status.setProductName(null);
         status.setResponseCode(responseCode);
-        status.setStatus(ProductStatus.Status.ERROR);
+        status.setStatus(CustomResourceStatus.Status.ERROR);
         status.setMessage(e.getMessage());
         product.setStatus(status);
         return ErrorStatusUpdateControl.updateStatus(product);
@@ -57,11 +58,11 @@ public class ProductController implements Reconciler<Product>, ErrorStatusHandle
         result.setResponseCode(responseCode);
         var status = switch (responseCode) {
             case 201:
-                yield ProductStatus.Status.CREATED;
+                yield CustomResourceStatus.Status.CREATED;
             case 200:
-                yield ProductStatus.Status.UPDATED;
+                yield CustomResourceStatus.Status.UPDATED;
             default:
-                yield ProductStatus.Status.UNDEFINED;
+                yield CustomResourceStatus.Status.UNDEFINED;
         };
         result.setStatus(status);
         product.setStatus(result);
