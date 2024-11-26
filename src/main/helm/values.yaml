@@ -15,4 +15,4 @@ app:
         enabled: true
         spec:
           kcConfig:
-            defaultClientScopes: [ ocx-ps-product:write, ocx-ps-slot:write, ocx-ps-ms:write ]
+            defaultClientScopes: [ ocx-ps-product:write, ocx-ps-slot:write, ocx-ps-ms:write, ocx-ps-mfe:write ]

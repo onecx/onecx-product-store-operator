@@ -7,6 +7,8 @@ import org.eclipse.microprofile.rest.client.inject.RestClient;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.tkit.onecx.product.store.operator.client.mappers.ProductStoreMapper;
+import org.tkit.onecx.product.store.operator.microfrontend.Microfrontend;
+import org.tkit.onecx.product.store.operator.microfrontend.MicrofrontendSpec;
 import org.tkit.onecx.product.store.operator.microservice.Microservice;
 import org.tkit.onecx.product.store.operator.microservice.MicroserviceSpec;
 import org.tkit.onecx.product.store.operator.product.Product;
@@ -14,6 +16,8 @@ import org.tkit.onecx.product.store.operator.product.ProductSpec;
 import org.tkit.onecx.product.store.operator.slot.Slot;
 import org.tkit.onecx.product.store.operator.slot.SlotSpec;
 
+import gen.org.tkit.onecx.product.store.mfe.v1.api.OperatorMfeApi;
+import gen.org.tkit.onecx.product.store.mfe.v1.model.UpdateMfeRequest;
 import gen.org.tkit.onecx.product.store.ms.v1.api.OperatorMsApi;
 import gen.org.tkit.onecx.product.store.ms.v1.model.UpdateMsRequest;
 import gen.org.tkit.onecx.product.store.product.v1.api.OperatorProductApi;
@@ -41,6 +45,10 @@ public class ProductStoreService {
     @RestClient
     OperatorMsApi msClient;
 
+    @Inject
+    @RestClient
+    OperatorMfeApi mfeClient;
+
     public int updateProduct(Product product) {
         ProductSpec spec = product.getSpec();
         UpdateProductRequest dto = mapper.map(spec);
@@ -64,6 +72,15 @@ public class ProductStoreService {
         UpdateMsRequest dto = mapper.map(spec);
         try (var response = msClient.createOrUpdateMs(spec.getProductName(), spec.getAppId(), dto)) {
             log.info("Update micro-service response {}", response.getStatus());
+            return response.getStatus();
+        }
+    }
+
+    public int updateMicrofrontend(Microfrontend microfrontend) {
+        MicrofrontendSpec spec = microfrontend.getSpec();
+        UpdateMfeRequest dto = mapper.map(spec);
+        try (var response = mfeClient.createOrUpdateMfe(spec.getProductName(), spec.getAppId(), dto)) {
+            log.info("Update micro-fronted response {}", response.getStatus());
             return response.getStatus();
         }
     }
