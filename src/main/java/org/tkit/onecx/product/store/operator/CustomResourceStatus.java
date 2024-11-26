@@ -1,13 +1,11 @@
 package org.tkit.onecx.product.store.operator;
 
+import com.fasterxml.jackson.annotation.JsonAlias;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import io.javaoperatorsdk.operator.api.ObservedGenerationAwareStatus;
 
 public abstract class CustomResourceStatus extends ObservedGenerationAwareStatus {
-
-    @JsonProperty("responseCode")
-    private int responseCode;
 
     @JsonProperty("status")
     private Status status;
@@ -25,6 +23,9 @@ public abstract class CustomResourceStatus extends ObservedGenerationAwareStatus
 
         UNDEFINED;
     }
+
+    @JsonAlias({ "responseCode", "response-code" })
+    private int responseCode;
 
     public int getResponseCode() {
         return responseCode;
