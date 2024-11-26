@@ -18,17 +18,6 @@ public class MicroserviceStatus extends CustomResourceStatus {
     @JsonProperty("appName")
     private String requestAppName;
 
-    @JsonProperty("responseCode")
-    private int responseCode;
-
-    public int getResponseCode() {
-        return responseCode;
-    }
-
-    public void setResponseCode(int responseCode) {
-        this.responseCode = responseCode;
-    }
-
     public String getRequestProductName() {
         return requestProductName;
     }

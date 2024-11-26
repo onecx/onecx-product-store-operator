@@ -9,17 +9,6 @@ public class ProductStatus extends CustomResourceStatus {
     @JsonProperty("product-name")
     private String productName;
 
-    @JsonProperty("response-code")
-    private int responseCode;
-
-    public int getResponseCode() {
-        return responseCode;
-    }
-
-    public void setResponseCode(int responseCode) {
-        this.responseCode = responseCode;
-    }
-
     public String getProductName() {
         return productName;
     }
