@@ -1,10 +1,10 @@
 package org.tkit.onecx.product.store.operator.microservice;
 
+import org.tkit.onecx.product.store.operator.CustomResourceStatus;
+
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-import io.javaoperatorsdk.operator.api.ObservedGenerationAwareStatus;
-
-public class MicroserviceStatus extends ObservedGenerationAwareStatus {
+public class MicroserviceStatus extends CustomResourceStatus {
 
     @JsonProperty("productName")
     private String requestProductName;
@@ -17,26 +17,6 @@ public class MicroserviceStatus extends ObservedGenerationAwareStatus {
 
     @JsonProperty("appName")
     private String requestAppName;
-
-    @JsonProperty("responseCode")
-    private int responseCode;
-
-    @JsonProperty("status")
-    private Status status;
-
-    @JsonProperty("message")
-    private String message;
-
-    public enum Status {
-
-        ERROR,
-
-        CREATED,
-
-        UPDATED,
-
-        UNDEFINED;
-    }
 
     public String getRequestProductName() {
         return requestProductName;
@@ -70,27 +50,4 @@ public class MicroserviceStatus extends ObservedGenerationAwareStatus {
         this.requestAppName = requestAppName;
     }
 
-    public int getResponseCode() {
-        return responseCode;
-    }
-
-    public void setResponseCode(int responseCode) {
-        this.responseCode = responseCode;
-    }
-
-    public Status getStatus() {
-        return status;
-    }
-
-    public void setStatus(Status status) {
-        this.status = status;
-    }
-
-    public String getMessage() {
-        return message;
-    }
-
-    public void setMessage(String message) {
-        this.message = message;
-    }
 }

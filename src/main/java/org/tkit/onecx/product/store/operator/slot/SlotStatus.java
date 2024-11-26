@@ -1,10 +1,10 @@
 package org.tkit.onecx.product.store.operator.slot;
 
+import org.tkit.onecx.product.store.operator.CustomResourceStatus;
+
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-import io.javaoperatorsdk.operator.api.ObservedGenerationAwareStatus;
-
-public class SlotStatus extends ObservedGenerationAwareStatus {
+public class SlotStatus extends CustomResourceStatus {
 
     @JsonProperty("productName")
     private String requestProductName;
@@ -14,26 +14,6 @@ public class SlotStatus extends ObservedGenerationAwareStatus {
 
     @JsonProperty("name")
     private String requestName;
-
-    @JsonProperty("responseCode")
-    private int responseCode;
-
-    @JsonProperty("status")
-    private Status status;
-
-    @JsonProperty("message")
-    private String message;
-
-    public enum Status {
-
-        ERROR,
-
-        CREATED,
-
-        UPDATED,
-
-        UNDEFINED;
-    }
 
     public String getRequestProductName() {
         return requestProductName;
@@ -57,30 +37,6 @@ public class SlotStatus extends ObservedGenerationAwareStatus {
 
     public void setRequestName(String requestName) {
         this.requestName = requestName;
-    }
-
-    public int getResponseCode() {
-        return responseCode;
-    }
-
-    public void setResponseCode(int responseCode) {
-        this.responseCode = responseCode;
-    }
-
-    public Status getStatus() {
-        return status;
-    }
-
-    public void setStatus(Status status) {
-        this.status = status;
-    }
-
-    public String getMessage() {
-        return message;
-    }
-
-    public void setMessage(String message) {
-        this.message = message;
     }
 
 }
