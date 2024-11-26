@@ -31,6 +31,10 @@ quarkus.openapi-generator.codegen.spec.onecx_product_store_operator_ms_v1_yaml.c
 quarkus.openapi-generator.codegen.spec.onecx_product_store_operator_ms_v1_yaml.base-package=gen.org.tkit.onecx.product.store.ms.v1
 quarkus.openapi-generator.codegen.spec.onecx_product_store_operator_ms_v1_yaml.return-response=true
 quarkus.openapi-generator.codegen.spec.onecx_product_store_operator_ms_v1_yaml.enable-security-generation=false
+quarkus.openapi-generator.codegen.spec.onecx_product_store_operator_mfe_v1_yaml.config-key=product_store_client
+quarkus.openapi-generator.codegen.spec.onecx_product_store_operator_mfe_v1_yaml.base-package=gen.org.tkit.onecx.product.store.mfe.v1
+quarkus.openapi-generator.codegen.spec.onecx_product_store_operator_mfe_v1_yaml.return-response=true
+quarkus.openapi-generator.codegen.spec.onecx_product_store_operator_mfe_v1_yaml.enable-security-generation=false
 ----
 ====
 
@@ -69,7 +73,7 @@ app:
         enabled: true
         spec:
           kcConfig:
-            defaultClientScopes: [ ocx-ps-product:write, ocx-ps-slot:write, ocx-ps-ms:write ]
+            defaultClientScopes: [ ocx-ps-product:write, ocx-ps-slot:write, ocx-ps-ms:write, ocx-ps-mfe:write ]
 
 ----
 

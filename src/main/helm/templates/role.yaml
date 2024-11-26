@@ -15,6 +15,9 @@ rules:
       - microservices
       - microservices/status
       - microservices/finalizers
+      - microfrontends
+      - microfrontends/status
+      - microfrontends/finalizers
     verbs:
       - get
       - list
