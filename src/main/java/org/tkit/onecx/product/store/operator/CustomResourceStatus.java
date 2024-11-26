@@ -6,9 +6,6 @@ import io.javaoperatorsdk.operator.api.ObservedGenerationAwareStatus;
 
 public abstract class CustomResourceStatus extends ObservedGenerationAwareStatus {
 
-    @JsonProperty("responseCode")
-    private int responseCode;
-
     @JsonProperty("status")
     private Status status;
 
@@ -24,14 +21,6 @@ public abstract class CustomResourceStatus extends ObservedGenerationAwareStatus
         UPDATED,
 
         UNDEFINED;
-    }
-
-    public int getResponseCode() {
-        return responseCode;
-    }
-
-    public void setResponseCode(int responseCode) {
-        this.responseCode = responseCode;
     }
 
     public Status getStatus() {
