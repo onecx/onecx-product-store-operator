@@ -7,6 +7,7 @@ import jakarta.ws.rs.WebApplicationException;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.tkit.onecx.product.store.operator.CustomResourceStatus;
 import org.tkit.onecx.product.store.operator.client.ProductStoreService;
 
 import io.javaoperatorsdk.operator.api.reconciler.*;
@@ -53,7 +54,7 @@ public class MicroserviceController implements Reconciler<Microservice>, ErrorSt
         status.setRequestAppName(null);
         status.setRequestAppVersion(null);
         status.setResponseCode(responseCode);
-        status.setStatus(MicroserviceStatus.Status.ERROR);
+        status.setStatus(CustomResourceStatus.Status.ERROR);
         status.setMessage(e.getMessage());
         microfrontend.setStatus(status);
         return ErrorStatusUpdateControl.updateStatus(microfrontend);
@@ -69,11 +70,11 @@ public class MicroserviceController implements Reconciler<Microservice>, ErrorSt
         result.setResponseCode(responseCode);
         var status = switch (responseCode) {
             case 201:
-                yield MicroserviceStatus.Status.CREATED;
+                yield CustomResourceStatus.Status.CREATED;
             case 200:
-                yield MicroserviceStatus.Status.UPDATED;
+                yield CustomResourceStatus.Status.UPDATED;
             default:
-                yield MicroserviceStatus.Status.UNDEFINED;
+                yield CustomResourceStatus.Status.UNDEFINED;
         };
         result.setStatus(status);
         microfrontend.setStatus(result);
