@@ -16,3 +16,7 @@ app:
         spec:
           kcConfig:
             defaultClientScopes: [ ocx-ps-product:write, ocx-ps-slot:write, ocx-ps-ms:write, ocx-ps-mfe:write ]
+    microservice:
+      spec:
+        description: OneCX Product Store Operator
+        name: OneCX Product Store Operator
