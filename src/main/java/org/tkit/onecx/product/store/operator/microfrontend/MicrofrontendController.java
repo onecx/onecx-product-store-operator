@@ -1,7 +1,5 @@
 package org.tkit.onecx.product.store.operator.microfrontend;
 
-import static io.javaoperatorsdk.operator.api.reconciler.Constants.WATCH_CURRENT_NAMESPACE;
-
 import jakarta.inject.Inject;
 import jakarta.ws.rs.WebApplicationException;
 

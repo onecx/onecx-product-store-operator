@@ -48,7 +48,7 @@ class MicroserviceControllerResponseTest extends AbstractTest {
         UpdateControl<Microservice> result = reconciler.reconcile(m, null);
         assertThat(result).isNotNull();
         assertThat(result.getResource()).isNotNull().isPresent();
-        assertThat(result.getResource().isPresent()).isTrue();
+        assertThat(result.getResource()).isPresent();
         assertThat(result.getResource().get().getStatus()).isNotNull();
         assertThat(result.getResource().get().getStatus().getStatus()).isNotNull()
                 .isEqualTo(MicroserviceStatus.Status.UNDEFINED);
