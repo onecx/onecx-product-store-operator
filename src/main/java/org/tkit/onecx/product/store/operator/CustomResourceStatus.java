@@ -3,9 +3,7 @@ package org.tkit.onecx.product.store.operator;
 import com.fasterxml.jackson.annotation.JsonAlias;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-import io.javaoperatorsdk.operator.api.ObservedGenerationAwareStatus;
-
-public abstract class CustomResourceStatus extends ObservedGenerationAwareStatus {
+public abstract class CustomResourceStatus {
 
     @JsonProperty("status")
     private Status status;

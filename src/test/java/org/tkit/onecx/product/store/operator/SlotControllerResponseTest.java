@@ -9,10 +9,10 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 import org.tkit.onecx.product.store.operator.client.ProductStoreService;
+import org.tkit.onecx.product.store.operator.microservice.MicroserviceStatus;
 import org.tkit.onecx.product.store.operator.slot.Slot;
 import org.tkit.onecx.product.store.operator.slot.SlotController;
 import org.tkit.onecx.product.store.operator.slot.SlotSpec;
-import org.tkit.onecx.product.store.operator.slot.SlotStatus;
 import org.tkit.onecx.product.store.test.AbstractTest;
 
 import io.javaoperatorsdk.operator.api.reconciler.UpdateControl;
@@ -46,9 +46,11 @@ class SlotControllerResponseTest extends AbstractTest {
 
         UpdateControl<Slot> result = controller.reconcile(m, null);
         assertThat(result).isNotNull();
-        assertThat(result.getResource()).isNotNull();
-        assertThat(result.getResource().getStatus()).isNotNull();
-        assertThat(result.getResource().getStatus().getStatus()).isNotNull().isEqualTo(SlotStatus.Status.UNDEFINED);
+        assertThat(result.getResource()).isNotNull().isPresent();
+        assertThat(result.getResource()).isPresent();
+        assertThat(result.getResource().get().getStatus()).isNotNull();
+        assertThat(result.getResource().get().getStatus().getStatus()).isNotNull()
+                .isEqualTo(MicroserviceStatus.Status.UNDEFINED);
 
     }
 }
