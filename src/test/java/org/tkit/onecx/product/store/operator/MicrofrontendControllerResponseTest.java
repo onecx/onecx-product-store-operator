@@ -47,9 +47,11 @@ class MicrofrontendControllerResponseTest extends AbstractTest {
 
         UpdateControl<Microfrontend> result = reconciler.reconcile(m, null);
         assertThat(result).isNotNull();
-        assertThat(result.getResource()).isNotNull();
-        assertThat(result.getResource().getStatus()).isNotNull();
-        assertThat(result.getResource().getStatus().getStatus()).isNotNull().isEqualTo(MicrofrontendStatus.Status.UNDEFINED);
+        assertThat(result.getResource()).isNotNull().isPresent();
+        assertThat(result.getResource().isPresent()).isTrue();
+        assertThat(result.getResource().get().getStatus()).isNotNull();
+        assertThat(result.getResource().get().getStatus().getStatus()).isNotNull()
+                .isEqualTo(MicrofrontendStatus.Status.UNDEFINED);
 
     }
 }

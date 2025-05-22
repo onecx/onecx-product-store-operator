@@ -10,12 +10,13 @@ import org.slf4j.LoggerFactory;
 import org.tkit.onecx.product.store.operator.CustomResourceStatus;
 import org.tkit.onecx.product.store.operator.client.ProductStoreService;
 
+import io.javaoperatorsdk.operator.api.config.informer.Informer;
 import io.javaoperatorsdk.operator.api.reconciler.*;
 import io.javaoperatorsdk.operator.processing.event.source.filter.OnAddFilter;
 import io.javaoperatorsdk.operator.processing.event.source.filter.OnUpdateFilter;
 
-@ControllerConfiguration(name = "microservice", namespaces = WATCH_CURRENT_NAMESPACE, onAddFilter = MicroserviceController.MicrofrontendAddFilter.class, onUpdateFilter = MicroserviceController.MicrofrontendUpdateFilter.class)
-public class MicroserviceController implements Reconciler<Microservice>, ErrorStatusHandler<Microservice> {
+@ControllerConfiguration(name = "microservice", informer = @Informer(name = "parameter", namespaces = Constants.WATCH_CURRENT_NAMESPACE, onAddFilter = MicroserviceController.MicrofrontendAddFilter.class, onUpdateFilter = MicroserviceController.MicrofrontendUpdateFilter.class))
+public class MicroserviceController implements Reconciler<Microservice> {
 
     private static final Logger log = LoggerFactory.getLogger(MicroserviceController.class);
 
@@ -34,7 +35,7 @@ public class MicroserviceController implements Reconciler<Microservice>, ErrorSt
 
         updateStatusPojo(microservice, responseCode);
         log.info("Microservice '{}' reconciled - updating status", microservice.getMetadata().getName());
-        return UpdateControl.updateStatus(microservice);
+        return UpdateControl.patchStatus(microservice);
 
     }
 
@@ -57,7 +58,7 @@ public class MicroserviceController implements Reconciler<Microservice>, ErrorSt
         status.setStatus(CustomResourceStatus.Status.ERROR);
         status.setMessage(e.getMessage());
         microfrontend.setStatus(status);
-        return ErrorStatusUpdateControl.updateStatus(microfrontend);
+        return ErrorStatusUpdateControl.patchStatus(microfrontend);
     }
 
     private void updateStatusPojo(Microservice microfrontend, int responseCode) {

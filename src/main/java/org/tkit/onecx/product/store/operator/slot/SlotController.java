@@ -10,12 +10,13 @@ import org.slf4j.LoggerFactory;
 import org.tkit.onecx.product.store.operator.CustomResourceStatus;
 import org.tkit.onecx.product.store.operator.client.ProductStoreService;
 
+import io.javaoperatorsdk.operator.api.config.informer.Informer;
 import io.javaoperatorsdk.operator.api.reconciler.*;
 import io.javaoperatorsdk.operator.processing.event.source.filter.OnAddFilter;
 import io.javaoperatorsdk.operator.processing.event.source.filter.OnUpdateFilter;
 
-@ControllerConfiguration(name = "slot", namespaces = WATCH_CURRENT_NAMESPACE, onAddFilter = SlotController.SlotAddFilter.class, onUpdateFilter = SlotController.SlotUpdateFilter.class)
-public class SlotController implements Reconciler<Slot>, ErrorStatusHandler<Slot> {
+@ControllerConfiguration(name = "slot", informer = @Informer(name = "parameter", namespaces = Constants.WATCH_CURRENT_NAMESPACE, onAddFilter = SlotController.SlotAddFilter.class, onUpdateFilter = SlotController.SlotUpdateFilter.class))
+public class SlotController implements Reconciler<Slot> {
 
     private static final Logger log = LoggerFactory.getLogger(SlotController.class);
 
@@ -35,7 +36,7 @@ public class SlotController implements Reconciler<Slot>, ErrorStatusHandler<Slot
 
         updateStatusPojo(slot, responseCode);
         log.info("Microservice '{}' reconciled - updating status", slot.getMetadata().getName());
-        return UpdateControl.updateStatus(slot);
+        return UpdateControl.patchStatus(slot);
 
     }
 
@@ -57,7 +58,7 @@ public class SlotController implements Reconciler<Slot>, ErrorStatusHandler<Slot
         status.setStatus(CustomResourceStatus.Status.ERROR);
         status.setMessage(e.getMessage());
         slot.setStatus(status);
-        return ErrorStatusUpdateControl.updateStatus(slot);
+        return ErrorStatusUpdateControl.patchStatus(slot);
     }
 
     private void updateStatusPojo(Slot slot, int responseCode) {
