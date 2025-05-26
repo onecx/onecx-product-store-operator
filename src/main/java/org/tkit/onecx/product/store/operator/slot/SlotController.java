@@ -7,6 +7,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.tkit.onecx.product.store.operator.CustomResourceStatus;
 import org.tkit.onecx.product.store.operator.client.ProductStoreService;
+import org.tkit.onecx.quarkus.operator.OperatorUtils;
 
 import io.javaoperatorsdk.operator.api.config.informer.Informer;
 import io.javaoperatorsdk.operator.api.reconciler.*;
@@ -82,7 +83,7 @@ public class SlotController implements Reconciler<Slot> {
 
         @Override
         public boolean accept(Slot resource) {
-            return resource.getSpec() != null;
+            return OperatorUtils.shouldProcessAdd(resource);
         }
     }
 
@@ -90,7 +91,7 @@ public class SlotController implements Reconciler<Slot> {
 
         @Override
         public boolean accept(Slot newResource, Slot oldResource) {
-            return newResource.getSpec() != null;
+            return OperatorUtils.shouldProcessUpdate(newResource, oldResource);
         }
     }
 }

@@ -7,6 +7,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.tkit.onecx.product.store.operator.CustomResourceStatus;
 import org.tkit.onecx.product.store.operator.client.ProductStoreService;
+import org.tkit.onecx.quarkus.operator.OperatorUtils;
 
 import io.javaoperatorsdk.operator.api.config.informer.Informer;
 import io.javaoperatorsdk.operator.api.reconciler.*;
@@ -84,7 +85,7 @@ public class MicrofrontendController implements Reconciler<Microfrontend> {
 
         @Override
         public boolean accept(Microfrontend resource) {
-            return resource.getSpec() != null;
+            return OperatorUtils.shouldProcessAdd(resource);
         }
     }
 
@@ -92,7 +93,7 @@ public class MicrofrontendController implements Reconciler<Microfrontend> {
 
         @Override
         public boolean accept(Microfrontend newResource, Microfrontend oldResource) {
-            return newResource.getSpec() != null;
+            return OperatorUtils.shouldProcessUpdate(newResource, oldResource);
         }
     }
 
