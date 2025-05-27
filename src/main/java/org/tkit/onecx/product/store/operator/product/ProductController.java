@@ -7,6 +7,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.tkit.onecx.product.store.operator.CustomResourceStatus;
 import org.tkit.onecx.product.store.operator.client.ProductStoreService;
+import org.tkit.onecx.quarkus.operator.OperatorUtils;
 
 import io.javaoperatorsdk.operator.api.config.informer.Informer;
 import io.javaoperatorsdk.operator.api.reconciler.*;
@@ -73,7 +74,7 @@ public class ProductController implements Reconciler<Product> {
 
         @Override
         public boolean accept(Product resource) {
-            return resource.getSpec() != null;
+            return OperatorUtils.shouldProcessAdd(resource);
         }
     }
 
@@ -81,7 +82,7 @@ public class ProductController implements Reconciler<Product> {
 
         @Override
         public boolean accept(Product newResource, Product oldResource) {
-            return newResource.getSpec() != null;
+            return OperatorUtils.shouldProcessUpdate(newResource, oldResource);
         }
     }
 }
