@@ -7,13 +7,15 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.tkit.onecx.product.store.operator.CustomResourceStatus;
 import org.tkit.onecx.product.store.operator.client.ProductStoreService;
+import org.tkit.onecx.quarkus.operator.OperatorUtils;
 
+import io.javaoperatorsdk.operator.api.config.informer.Informer;
 import io.javaoperatorsdk.operator.api.reconciler.*;
 import io.javaoperatorsdk.operator.processing.event.source.filter.OnAddFilter;
 import io.javaoperatorsdk.operator.processing.event.source.filter.OnUpdateFilter;
 
-@ControllerConfiguration(name = "product", namespaces = Constants.WATCH_CURRENT_NAMESPACE, onAddFilter = ProductController.AddFilter.class, onUpdateFilter = ProductController.UpdateFilter.class)
-public class ProductController implements Reconciler<Product>, ErrorStatusHandler<Product> {
+@ControllerConfiguration(name = "product", informer = @Informer(name = "parameter", namespaces = Constants.WATCH_CURRENT_NAMESPACE, onAddFilter = ProductController.AddFilter.class, onUpdateFilter = ProductController.UpdateFilter.class))
+public class ProductController implements Reconciler<Product> {
     private static final Logger log = LoggerFactory.getLogger(ProductController.class);
 
     @Inject
@@ -29,7 +31,7 @@ public class ProductController implements Reconciler<Product>, ErrorStatusHandle
 
         updateStatusPojo(product, responseCode);
         log.info("Product '{}' reconciled - updating status", product.getMetadata().getName());
-        return UpdateControl.updateStatus(product);
+        return UpdateControl.patchStatus(product);
 
     }
 
@@ -48,7 +50,7 @@ public class ProductController implements Reconciler<Product>, ErrorStatusHandle
         status.setStatus(CustomResourceStatus.Status.ERROR);
         status.setMessage(e.getMessage());
         product.setStatus(status);
-        return ErrorStatusUpdateControl.updateStatus(product);
+        return ErrorStatusUpdateControl.patchStatus(product);
     }
 
     private void updateStatusPojo(Product product, int responseCode) {
@@ -72,7 +74,7 @@ public class ProductController implements Reconciler<Product>, ErrorStatusHandle
 
         @Override
         public boolean accept(Product resource) {
-            return resource.getSpec() != null;
+            return OperatorUtils.shouldProcessAdd(resource);
         }
     }
 
@@ -80,7 +82,7 @@ public class ProductController implements Reconciler<Product>, ErrorStatusHandle
 
         @Override
         public boolean accept(Product newResource, Product oldResource) {
-            return newResource.getSpec() != null;
+            return OperatorUtils.shouldProcessUpdate(newResource, oldResource);
         }
     }
 }
