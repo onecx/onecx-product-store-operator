@@ -5,6 +5,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 public abstract class CustomResourceStatus {
 
+    @JsonProperty("observedGeneration")
+    private Long observedGeneration;
+
     @JsonProperty("status")
     private Status status;
 
@@ -47,5 +50,9 @@ public abstract class CustomResourceStatus {
 
     public void setMessage(String message) {
         this.message = message;
+    }
+
+    public Long getObservedGeneration() {
+        return observedGeneration;
     }
 }
