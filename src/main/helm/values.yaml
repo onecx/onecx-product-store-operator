@@ -1,5 +1,7 @@
 app:
   name: product-operator
+  template:
+    oidc_client_id: "ONECX_OIDC_CLIENT_CLIENT_ID"
   image:
     repository: "onecx/onecx-product-store-operator"
   envCustom:
@@ -16,3 +18,7 @@ app:
         spec:
           kcConfig:
             defaultClientScopes: [ ocx-ps-product:write, ocx-ps-slot:write, ocx-ps-ms:write, ocx-ps-mfe:write ]
+    microservice:
+      spec:
+        description: OneCX Product Store Operator
+        name: OneCX Product Store Operator
