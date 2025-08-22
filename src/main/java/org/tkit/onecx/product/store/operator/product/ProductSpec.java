@@ -35,6 +35,9 @@ public class ProductSpec {
     @JsonProperty("provider")
     private String provider;
 
+    @JsonProperty("multitenancy")
+    private Boolean multitenancy;
+
     public String getName() {
         return name;
     }
@@ -105,5 +108,13 @@ public class ProductSpec {
 
     public void setProvider(String provider) {
         this.provider = provider;
+    }
+
+    public Boolean getMultitenancy() {
+        return multitenancy;
+    }
+
+    public void setMultitenancy(Boolean multitenancy) {
+        this.multitenancy = multitenancy;
     }
 }
