@@ -1,2 +1,2 @@
 # onecx-product-store-operator
-OneCx product store k8s operator
+OneCX Product Store k8s Operator
