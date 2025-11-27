@@ -87,6 +87,7 @@ class ProductControllerTest extends AbstractTest {
         spec.setDescription("description");
         spec.setImageUrl("imageUrl");
         spec.setProvider("provider");
+        spec.setMultitenancy(false);
         return spec;
     }
 
