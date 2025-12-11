@@ -1,1 +1,1 @@
-** xref:documentation:onecx-product-store-operator:index.adoc[Product Store Operator]
+** xref:documentation:onecx-product-store-operator:index.adoc[Operator]
