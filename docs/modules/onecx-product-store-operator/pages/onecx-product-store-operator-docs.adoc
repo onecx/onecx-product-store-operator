@@ -1,10 +1,12 @@
 
 include::onecx-product-store-operator-attributes.adoc[opts=optional]
 
-=== Default properties
+{docker-registry}[Link to Docker registry]
+
+== Default properties
 
 .{properties-file}
-[%collapsible%open]
+[%collapsible]
 ====
 [source,properties,subs=attributes+]
 ----
@@ -15,7 +17,7 @@ quarkus.operator-sdk.controllers.product.retry.interval.max=300000
 quarkus.kubernetes-client.devservices.override-kubeconfig=true
 %prod.quarkus.rest-client.product_store_client.url=http://onecx-product-store-svc:8080
 %prod.quarkus.rest-client.product_store_client.providers=io.quarkus.oidc.client.reactive.filter.OidcClientRequestReactiveFilter
-%prod.quarkus.oidc-client.client-id=${ONECX_OIDC_CLIENT_CLIENT_ID:${quarkus.application.name}}
+%prod.quarkus.oidc-client.client-id=${quarkus.application.name}
 quarkus.operator-sdk.crd.validate=false
 quarkus.operator-sdk.helm.enabled=true
 quarkus.openapi-generator.codegen.input-base-dir=target/tmp/openapi
@@ -38,28 +40,22 @@ quarkus.openapi-generator.codegen.spec.onecx_product_store_operator_mfe_v1_yaml.
 ----
 ====
 
-=== Extensions
-
+== Extensions
+.Extensions List
+[%collapsible]
+====
 include::onecx-product-store-operator-extensions.adoc[opts=optional]
+====
 
-=== Container
+== Helm
 
-{docker-registry}[Docker registry]
+{helm-registry}[Link to Helm registry]
 
-
-=== Helm
-
-{helm-registry}[Helm registry]
-
-Default values
-
-.{helm-file}
+.Default values in {helm-file}
 [source,yaml]
 ----
 app:
   name: product-operator
-  template:
-    oidc_client_id: "ONECX_OIDC_CLIENT_CLIENT_ID"
   image:
     repository: "onecx/onecx-product-store-operator"
   envCustom:
@@ -81,4 +77,3 @@ app:
         description: OneCX Product Store Operator
         name: OneCX Product Store Operator
 ----
-
