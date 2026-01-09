@@ -1,10 +1,9 @@
 include::onecx-product-store-operator-attributes.adoc[opts=optional]
 
-== onecx-product-store-operator
+= OneCX Product Store Operator
 
-include::docs.adoc[opts=optional]
 
-=== Configuration
+== Configuration
 include::onecx-product-store-operator.adoc[opts=optional]
 
 include::onecx-product-store-operator-docs.adoc[opts=optional]
