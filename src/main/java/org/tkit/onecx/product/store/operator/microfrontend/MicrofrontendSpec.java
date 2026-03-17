@@ -63,6 +63,9 @@ public class MicrofrontendSpec {
     @JsonProperty("endpoints")
     private List<MicrofrontendEndpointSpec> endpoints;
 
+    @JsonProperty("shareScope")
+    private String shareScope;
+
     public void setDeprecated(boolean deprecated) {
         this.deprecated = deprecated;
     }
@@ -205,6 +208,14 @@ public class MicrofrontendSpec {
 
     public void setEndpoints(List<MicrofrontendEndpointSpec> endpoints) {
         this.endpoints = endpoints;
+    }
+
+    public String getShareScope() {
+        return shareScope;
+    }
+
+    public void setShareScope(String shareScope) {
+        this.shareScope = shareScope;
     }
 
     @Override
