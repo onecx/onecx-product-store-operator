@@ -105,6 +105,7 @@ class MicrofrontendControllerTest extends AbstractTest {
         spec.setEndpoints(List.of(e));
         spec.setDeprecated(false);
         spec.setType(MicrofrontendSpec.Microfrontend.COMPONENT);
+        spec.setShareScope("shareScope");
         return spec;
     }
 
