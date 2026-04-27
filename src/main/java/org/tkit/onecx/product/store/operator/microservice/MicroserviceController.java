@@ -68,14 +68,18 @@ public class MicroserviceController implements Reconciler<Microservice> {
         result.setRequestAppName(spec.getName());
         result.setRequestAppVersion(spec.getVersion());
         result.setResponseCode(responseCode);
-        var status = switch (responseCode) {
+        var status = AbstractResourceStatus.Status.UNDEFINED;
+        switch (responseCode) {
             case 201:
-                yield AbstractResourceStatus.Status.CREATED;
+                status = AbstractResourceStatus.Status.CREATED;
+                break;
             case 200:
-                yield AbstractResourceStatus.Status.UPDATED;
+                status = AbstractResourceStatus.Status.UPDATED;
+                break;
             default:
-                yield AbstractResourceStatus.Status.UNDEFINED;
-        };
+                status = AbstractResourceStatus.Status.UNDEFINED;
+        }
+        ;
         result.setStatus(status);
         microfrontend.setStatus(result);
     }
