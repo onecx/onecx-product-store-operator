@@ -58,18 +58,11 @@ public class ProductController implements Reconciler<Product> {
         ProductSpec spec = product.getSpec();
         result.setProductName(spec.getName());
         result.setResponseCode(responseCode);
-        var status = AbstractResourceStatus.Status.UNDEFINED;
-        switch (responseCode) {
-            case 201:
-                status = AbstractResourceStatus.Status.CREATED;
-                break;
-            case 200:
-                status = AbstractResourceStatus.Status.UPDATED;
-                break;
-            default:
-                status = AbstractResourceStatus.Status.UNDEFINED;
-        }
-        ;
+        var status = switch (responseCode) {
+            case 201 -> AbstractResourceStatus.Status.CREATED;
+            case 200 -> AbstractResourceStatus.Status.UPDATED;
+            default -> AbstractResourceStatus.Status.UNDEFINED;
+        };
         result.setStatus(status);
         product.setStatus(result);
     }

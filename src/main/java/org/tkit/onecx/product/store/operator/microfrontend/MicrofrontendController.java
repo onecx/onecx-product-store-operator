@@ -69,18 +69,11 @@ public class MicrofrontendController implements Reconciler<Microfrontend> {
         result.setRequestAppName(spec.getAppName());
         result.setRequestAppVersion(spec.getAppVersion());
         result.setResponseCode(responseCode);
-        var status = AbstractResourceStatus.Status.UNDEFINED;
-        switch (responseCode) {
-            case 201:
-                status = AbstractResourceStatus.Status.CREATED;
-                break;
-            case 200:
-                status = AbstractResourceStatus.Status.UPDATED;
-                break;
-            default:
-                status = AbstractResourceStatus.Status.UNDEFINED;
-        }
-        ;
+        var status = switch (responseCode) {
+            case 201 -> AbstractResourceStatus.Status.CREATED;
+            case 200 -> AbstractResourceStatus.Status.UPDATED;
+            default -> AbstractResourceStatus.Status.UNDEFINED;
+        };
         result.setStatus(status);
         microfrontend.setStatus(result);
     }
