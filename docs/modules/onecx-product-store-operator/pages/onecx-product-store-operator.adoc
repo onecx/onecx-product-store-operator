@@ -7,7 +7,7 @@ h|[.header-title]##Configuration property##
 h|Type
 h|Default
 
-a| [[onecx-product-store-operator_onecx-product-store-operator-leader-election-lease-name]] [.property-path]##link:#onecx-product-store-operator_onecx-product-store-operator-leader-election-lease-name[`onecx.product-store.operator.leader-election.lease-name`]##
+a| [[onecx-product-store-operator_onecx-product-store-operator-leader-election-lease-name]] [.property-path]##link:#onecx-product-store-operator_onecx-product-store-operator-leader-election-lease-name[`+++onecx.product-store.operator.leader-election.lease-name+++`]##
 ifdef::add-copy-button-to-config-props[]
 config_property_copy_button:+++onecx.product-store.operator.leader-election.lease-name+++[]
 endif::add-copy-button-to-config-props[]
